@@ -596,7 +596,7 @@ const musicData = [
     },
     {
         "title": "Compass Gripper!!!",
-        "artist": "FRAME・もふもふえんてんF-LAGS",
+        "artist": "FRAME・もふもふえん・F-LAGS",
         "file": "music/FRAME・もふもふえんてんF-LAGS - Compass Gripper!!!.mp3"
     },
     {
