@@ -590,9 +590,9 @@ const musicData = [
         "file": "music/FRAME - 勇敢なるキミへ.mp3"
     },
     {
-        "title": "Bet your intuition! 2026-07-08 16-01-42",
+        "title": "Bet your intuition! ",
         "artist": "FRAME・S.E.M・Legenders",
-        "file": "music/FRAME・S.E.M・Legenders - Bet your intuition! 2026-07-08 16-01-42.mp3"
+        "file": "music/FRAME・S.E.M・Legenders - Bet your intuition!.mp3"
     },
     {
         "title": "Compass Gripper!!!",
@@ -1080,9 +1080,9 @@ const musicData = [
         "file": "music/ピエール・伊瀬谷四季・紅井朱雀・北村想楽 - てのうえで踊るメヌエット.mp3"
     },
     {
-        "title": "幻想のUtopia 2026-07-08 16-59-26",
+        "title": "幻想のUtopia ",
         "artist": "ピエール・蒼井悠介・蒼井享介・握野英雄・木村龍・秋山隼人・冬美旬・榊夏来・若里春名・紅井朱雀・ 東雲荘一郎・アスラン＝ベルゼビュートⅡ世・岡村直央・硲道夫・大河タケル",
-        "file": "music/ピエール・蒼井悠介・蒼井享介・握野英雄・木村龍・秋山隼人・冬美旬・榊夏来・若里春名・紅井朱雀・ 東雲荘一郎・アスラン＝ベルゼビュートⅡ世・岡村直央・硲道夫・大河タケル - 幻想のUtopia 2026-07-08 16-59-26.mp3"
+        "file": "music/省略 - 幻想のUtopia.mp3"
     },
     {
         "title": "＊ましゅまろ色のまほう使い＊",
@@ -1715,9 +1715,9 @@ const musicData = [
         "file": "music/天ヶ瀬冬馬・握野英雄・卯月巻緒・牙崎 漣 - Wonderlander's Party.mp3"
     },
     {
-        "title": "安寧のDystopia 2026-07-08 17-33-06",
+        "title": "安寧のDystopia",
         "artist": "天ヶ瀬冬馬・伊集院北斗・都築圭・神楽麗・渡辺みのり・信玄誠司・華村翔真・清澄九郎・ 伊瀬谷四季・神谷幸広・卯月巻緒・水嶋咲・橘志狼・舞田類・山下次郎・円城寺道流, 兜大吾・九十九一希・葛之葉雨彦・北村想楽",
-        "file": "music/天ヶ瀬冬馬・伊集院北斗・都築圭・神楽麗・渡辺みのり・信玄誠司・華村翔真・清澄九郎・ 伊瀬谷四季・神谷幸広・卯月巻緒・水嶋咲・橘志狼・舞田類・山下次郎・円城寺道流, 兜大吾・九十九一希・葛之葉雨彦・北村想楽 - 安寧のDystopia 2026-07-08 17-33-06.mp3"
+        "file": "music/省略 - 安寧のDystopia.mp3"
     },
     {
         "title": "もくろみインディアNight",
