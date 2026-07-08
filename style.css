@@ -57,6 +57,8 @@ html{
 
 body{
 
+    touch-action: manipulation;
+
     font-family: "Hakkou", serif;
 
     background-image:url("images/background.png");
@@ -70,10 +72,6 @@ body{
     background-attachment:fixed;
 
     overflow:hidden;
-
-　　position:relative;
-
-    isolation:isolate;
 }
 
 /*==================================================
@@ -85,10 +83,6 @@ body::before{
     content:"";
 
     position:absolute;
-
-    pointer-events:none;
-    z-index:-1;
-
 
     width:520px;
     height:520px;
@@ -111,9 +105,6 @@ body::after{
     content:"";
 
     position:absolute;
-
-    pointer-events:none;
-    z-index:-1;
 
     width:460px;
     height:460px;
@@ -148,8 +139,6 @@ body::after{
     align-items:center;
 
     position:relative;
-
-    z-index:1;
 
 }
 
@@ -1449,9 +1438,6 @@ header{
     width:420px;
     height:65px;
 
-    position:relative;
-    z-index:1000;
-    pointer-events:auto;
 }
 /*==================================================
 スマホ
