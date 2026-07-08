@@ -1,0 +1,1526 @@
+/*==================================================
+  フォント
+==================================================*/
+
+@font-face {
+
+    font-family: "Hakkou";
+
+    src: url("fonts/HakkouMincho.ttf") format("truetype");
+
+    font-weight: normal;
+
+    font-style: normal;
+
+}
+
+
+/*==================================================
+  IntroQuiz Version 1.0
+==================================================*/
+
+:root{
+
+    --main:#7e93a7;
+    --sub:#7e93a7;
+    --bg:#F6FBFF;
+
+    --text:#7e93a7;
+    --white:#FFFFFF;
+
+    --green:#d04f97;
+    --red:#719bad;
+
+   --shadow:0 12px 30px rgba(126, 147, 167, 0.10);
+
+}
+
+/*==================================================
+リセット
+==================================================*/
+button{
+
+    font-family: inherit;
+
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family: "Hakkou", serif;
+
+    background-image:url("images/background.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    background-attachment:fixed;
+
+    overflow:hidden;
+
+}
+
+/*==================================================
+背景
+==================================================*/
+
+body::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:520px;
+    height:520px;
+
+    background:#7e93a7;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    top:-180px;
+    left:-120px;
+
+    opacity:.20;
+
+}
+
+body::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:460px;
+    height:460px;
+
+    background:#7e93a7;
+
+    opacity:.15;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    right:-120px;
+    bottom:-120px;
+
+}
+
+/*==================================================
+アプリ
+==================================================*/
+
+#app{
+
+    width:100vw;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+}
+
+/*==================================================
+画面
+==================================================*/
+
+.screen{
+
+    display:none;
+
+    width:100%;
+
+    min-height:100vh;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.screen.active{
+
+    display:flex;
+
+    width:100%;
+
+    min-height:100vh;
+
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*==================================================
+カード
+==================================================*/
+
+.card{
+
+    width:min(92%,900px);
+
+    min-height:680px;
+
+    background:#FFFFFF;
+
+    border:1px solid #EDF4FF;
+
+    border-radius:36px;
+
+    box-shadow:var(--shadow);
+
+    padding:40px;
+
+    position:relative;
+
+}
+
+/*==================================================
+タイトル
+==================================================*/
+
+.logo{
+
+    text-align:center;
+
+    margin-top:20px;
+
+}
+
+.logo-icon{
+
+    font: size 72px;
+
+    color:var(--main);
+
+}
+
+.logo h1{
+
+    font-size:120px;
+
+    color:var(--main);
+
+    font-weight:700;
+
+}
+
+.logo p{
+
+    margin-top:10px;
+
+    color:#7e93a7;
+
+}
+
+/*==================================================
+見出し
+==================================================*/
+
+h2{
+
+    text-align:center;
+
+    margin:40px 0 20px;
+
+    color:var(--text);
+
+    font-size:40px;
+
+}
+
+h3{
+
+    font-size:35px;
+
+}
+
+p{
+
+    line-height:1.6;
+
+}
+
+/*==================================================
+問題数ボタン
+==================================================*/
+
+.questionButtons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-top:35px;
+
+}
+
+.count-btn{
+
+    width:95px;
+
+    height:72px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:white;
+
+    color:var(--main);
+
+    font-size:20px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:
+
+    0 8px 20px rgba(126, 147, 167,.08);
+
+}
+
+.count-btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.count-btn.selected{
+
+    background:linear-gradient(
+        135deg,
+        var(--main),
+        var(--sub)
+    );
+
+    color:white;
+
+    box-shadow:
+
+    0 15px 25px rgba(126, 147, 167,.25);
+
+}
+
+/*==================================================
+メインボタン
+==================================================*/
+
+.mainButton{
+
+    width:340px;
+
+    height:68px;
+
+    margin:50px auto 0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:linear-gradient(
+        90deg,
+        var(--main),
+        var(--sub)
+    );
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    box-shadow:
+
+    0 18px 30px rgba(126, 147, 167,.22);
+
+}
+
+.mainButton:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.mainButton:active{
+
+    transform:scale(.96);
+
+}
+
+/*==================================================
+サブボタン
+==================================================*/
+
+.subButton{
+
+    width:260px;
+
+    height:58px;
+
+    margin:20px auto;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:white;
+
+    color:var(--main);
+
+    font-size:20px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    box-shadow:
+
+    0 10px 25px rgba(126, 147, 167,.12);
+
+    transition:.2s;
+
+}
+
+.subButton:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/*==================================================
+ホーム
+==================================================*/
+
+.homeButton{
+
+    position:absolute;
+
+    left:30px;
+
+    top:30px;
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+
+    0 10px 25px rgba(126, 147, 167,.12);
+
+    color:var(--main);
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.homeButton:hover{
+
+    transform:scale(1.08);
+
+}
+/*==================================================
+ステータス
+==================================================*/
+
+header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:10px;
+
+}
+
+.status{
+
+    flex:1;
+
+    text-align:center;
+
+}
+
+.status p{
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    color:#8aa0c5;
+
+    margin-bottom:8px;
+
+}
+
+.status h3{
+
+    color:var(--main);
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+/*==================================================
+ゲームタイトル
+==================================================*/
+
+.gameTitle{
+
+    margin-top:35px;
+
+    margin-bottom:30px;
+
+}
+
+/*==================================================
+タイマー
+==================================================*/
+
+.timerArea{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin:15px 0 30px;
+
+}
+
+.timerCircle{
+
+    width:230px;
+
+    height:230px;
+
+    position:relative;
+
+}
+
+.progress{
+
+    width:230px;
+
+    height:230px;
+
+    transform:rotate(-90deg);
+
+}
+
+.progress circle{
+
+    fill:none;
+
+    stroke-width:12;
+
+}
+
+.bg{
+
+    stroke:#d9ecff;
+
+}
+
+.fg{
+
+    fill:none;
+
+    stroke:url(#timerGradient);
+
+    stroke-width:12;
+
+    stroke-linecap:round;
+
+    stroke-dasharray:597;
+
+    stroke-dashoffset:0;
+
+    transition:stroke-dashoffset 1s linear;
+
+}
+
+.answerRing{
+
+    stroke:url(#answerTimerGradient);
+
+}
+
+.timerText{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.timerText span{
+
+    font-size:72px;
+
+    color:#7e93a7;
+
+    font-weight:700;
+
+}
+
+.timerText p{
+
+    color:#7e93a7;
+
+    margin-top:-5px;
+
+}
+
+/*==================================================
+イコライザー
+==================================================*/
+
+/*==================================================
+イコライザー
+==================================================*/
+
+.equalizer{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
+
+    gap:5px;
+
+    height:45px;
+
+    margin:20px 0 35px;
+
+    opacity:.25;
+
+    transition:opacity .3s ease;
+
+}
+
+/* 再生中だけ明るくする */
+.equalizer.playing{
+
+    opacity:1;
+
+}
+
+.equalizer span{
+
+    width:6px;
+
+    height:18px;
+
+    border-radius:999px;
+
+    background:linear-gradient(
+        to top,
+        #5780a7,
+        #7e93a7
+    );
+
+}
+
+/* 再生中だけ動く */
+.equalizer.playing span{
+
+    animation:equalizer .8s infinite ease-in-out;
+
+}
+
+/* 少しずつズラして自然な動きに */
+.equalizer span:nth-child(1){
+
+    animation-delay:.00s;
+
+}
+
+.equalizer span:nth-child(2){
+
+    animation-delay:.12s;
+
+}
+
+.equalizer span:nth-child(3){
+
+    animation-delay:.25s;
+
+}
+
+.equalizer span:nth-child(4){
+
+    animation-delay:.08s;
+
+}
+
+.equalizer span:nth-child(5){
+
+    animation-delay:.32s;
+
+}
+
+.equalizer span:nth-child(6){
+
+    animation-delay:.18s;
+
+}
+
+.equalizer span:nth-child(7){
+
+    animation-delay:.28s;
+
+}
+
+@keyframes equalizer{
+
+    0%{
+
+        height:12px;
+
+    }
+
+    20%{
+
+        height:28px;
+
+    }
+
+    40%{
+
+        height:40px;
+
+    }
+
+    60%{
+
+        height:22px;
+
+    }
+
+    80%{
+
+        height:34px;
+
+    }
+
+    100%{
+
+        height:16px;
+
+    }
+
+}
+
+/*==================================================
+回答画面
+==================================================*/
+
+#answerScreen .card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+#answerScreen h2{
+
+    margin-bottom:10px;
+
+}
+
+#answerScreen p{
+
+    color:#7a8aa5;
+
+    margin-bottom:25px;
+
+}
+
+/*==================================================
+フェード
+==================================================*/
+
+.fadeIn{
+
+    animation:fade .35s;
+
+}
+
+.pop{
+
+    animation:pop .25s;
+
+}
+
+@keyframes pop{
+
+    0%{
+
+        transform:scale(.8);
+
+    }
+
+    70%{
+
+        transform:scale(1.08);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/*==================================================
+○×カード
+==================================================*/
+
+.judgeArea{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    margin-top:55px;
+
+    flex-wrap:wrap;
+
+}
+
+.judgeCard{
+
+    width:190px;
+
+    height:170px;
+
+    background:white;
+
+    border:none;
+
+    border-radius:28px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.25s;
+
+    box-shadow:
+
+    0 15px 35px rgba(126, 147, 167, 0.12);
+
+}
+
+.judgeCard:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.judgeCard:active{
+
+    transform:scale(.95);
+
+}
+
+.judgeIcon{
+
+    width:72px;
+
+    height:72px;
+
+    display:block;
+
+    margin-bottom:12px;
+
+}
+
+.correct{
+
+    color:var(--green);
+
+}
+
+.correct:hover{
+
+    box-shadow:
+
+    0 20px 40px rgba(208, 79, 150, 0.22);
+
+}
+
+.wrong{
+
+    color:var(--red);
+
+}
+
+.wrong:hover{
+
+    box-shadow:
+
+    0 20px 40px rgba(113, 155, 173, 0.22);
+
+}
+
+/*==================================================
+曲情報
+==================================================*/
+
+#musicTitle{
+
+    text-align:center;
+
+    font-size:46px;
+
+    margin-top:18px;
+
+    color:var(--main);
+
+}
+
+#artistName{
+
+    text-align:center;
+
+    margin-top:12px;
+
+    color:#6d84ab;
+
+    font-weight:500;
+
+}
+
+/*==================================================
+結果画面
+==================================================*/
+
+.scoreBox{
+
+    margin-top:60px;
+
+    text-align:center;
+
+}
+
+.scoreBox p{
+
+    letter-spacing:3px;
+
+    color:#8ca1c4;
+
+}
+
+#finalScore{
+
+    font-size:76px;
+
+    margin-top:12px;
+
+    color:var(--main);
+
+}
+
+.rankBox{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin:45px 0;
+
+}
+
+.laurel{
+
+    font-size:42px;
+
+}
+
+#rank{
+
+    font-size:95px;
+
+    color:#f5b942;
+
+    font-weight:700;
+
+}
+
+/*==================================================
+アニメーション
+==================================================*/
+
+.mainButton,
+.subButton,
+.count-btn,
+.judgeCard,
+.homeButton{
+
+    transition:
+
+    transform .25s,
+
+    box-shadow .25s,
+
+    background .25s;
+
+}
+
+.mainButton:hover{
+
+    box-shadow:
+
+    0 20px 40px rgba(126, 147, 167, 0.28);
+
+}
+
+.subButton:hover{
+
+    box-shadow:
+
+    0 18px 35px rgba(126, 147, 167, 0.18);
+
+}
+
+.homeButton:hover{
+
+    box-shadow:
+
+    0 15px 35px rgba(126, 147, 167, 0.18);
+
+}
+
+/*==================================================
+スマホ
+==================================================*/
+
+@media (max-width:768px){
+
+.card{
+
+    width:100%;
+
+    min-height:100vh;
+
+    border-radius:0;
+
+    padding:25px;
+
+}
+
+.logo h1{
+
+    font-size:46px;
+
+}
+
+header{
+
+    gap:15px;
+
+}
+
+.status h3{
+
+    font-size:20px;
+
+}
+
+.timerCircle{
+
+    width:180px;
+
+    height:180px;
+
+}
+
+.progress{
+
+    width:180px;
+
+    height:180px;
+
+}
+
+.timerText span{
+
+    font-size:54px;
+
+}
+
+.mainButton{
+
+    width:100%;
+
+}
+
+.subButton{
+
+    width:100%;
+
+}
+
+.judgeArea{
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.judgeCard{
+
+    width:100%;
+
+    max-width:260px;
+
+}
+
+#musicTitle{
+
+    font-size:34px;
+
+}
+
+#finalScore{
+
+    font-size:52px;
+
+}
+
+#rank{
+
+    font-size:72px;
+
+}
+
+}
+/*==================================================
+ボタンエリア
+==================================================*/
+
+.buttonArea{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-top:20px;
+
+}
+
+.buttonArea .mainButton{
+
+    margin:0;
+
+}
+
+.buttonArea .subButton{
+
+    margin:0;
+
+}
+
+/*==================================================
+結果画面
+==================================================*/
+
+.finishCard{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.finishTitle{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:25px;
+
+    margin-top:5px;
+
+    margin-bottom:30px;
+
+}
+
+.finishTitle h1{
+
+    color:var(--main);
+
+    font-size:56px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+    text-align:center;
+
+}
+
+.finishTitle p{
+
+    color:#7e93a7;
+
+    text-align:center;
+
+    font-size:22px;
+
+}
+
+.confetti{
+
+    font-size:34px;
+
+    animation:confettiFloat 2.5s ease-in-out infinite;
+
+}
+
+.confetti.right{
+
+    animation-delay:1.2s;
+
+}
+
+@keyframes confettiFloat{
+
+    0%{
+
+        transform:translateY(0px) rotate(0deg);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px) rotate(12deg);
+
+    }
+
+    100%{
+
+        transform:translateY(0px) rotate(0deg);
+
+    }
+
+}
+
+/*==================================================
+スコアカード
+==================================================*/
+
+.resultCard{
+
+    width:100%;
+
+    max-width:620px;
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:40px;
+
+    margin-bottom:40px;
+
+    box-shadow:
+
+        0 12px 35px rgba(126, 147, 167, 0.12);
+        
+
+}
+
+.resultLabel{
+
+    text-align:center;
+
+    letter-spacing:3px;
+
+    color:#7e93a7;
+
+    font-size:26px;
+
+    font-weight:700;
+
+}
+
+#finalScore{
+
+    text-align:center;
+
+    color:#7e93a7;
+
+    font-size:76px;
+
+    font-weight:700;
+
+    margin:15px 0 25px;
+
+}
+
+.resultLine{
+
+    width:100%;
+
+    height:2px;
+
+    background:#edf3ff;
+
+    margin-bottom:25px;
+
+}
+
+/*==================================================
+ランク
+==================================================*/
+
+
+.rankArea{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+}
+
+#rank{
+
+    font-size:120px;
+
+    font-weight:700;
+
+    line-height:1;
+
+    background:linear-gradient(
+        180deg,
+        #7e93a7,
+        #7e93a7
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+#rankComment{
+
+    margin-top:8px;
+
+    text-align:center;
+
+    color:#7e93a7;
+
+    font-size:22px;
+
+    font-weight:600;
+
+}
+
+/*==================================================
+結果画面ボタン
+==================================================*/
+
+#finishScreen .subButton{
+
+    width:420px;
+
+    height:65px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:22px;
+
+    
+
+}
+
+/*==================================================
+スマホ
+==================================================*/
+
+@media(max-width:768px){
+
+    .finishTitle{
+
+        gap:10px;
+
+    }
+
+    .finishTitle h1{
+
+        font-size:38px;
+
+    }
+
+    .finishTitle p{
+
+        font-size:18px;
+
+    }
+
+    .resultCard{
+
+        padding:25px;
+
+    }
+
+    #finalScore{
+
+        font-size:52px;
+
+    }
+
+    #rank{
+
+        font-size:82px;
+
+    }
+
+    .laurel{
+
+        font-size:48px;
+
+    }
+
+    #finishScreen .subButton{
+
+        width:100%;
+        background:white;
+
+opacity:1;
+
+position:relative;
+
+z-index:10;
+
+    }
+
+}
+
+.resultCard{
+
+    background:white;
+
+    position:relative;
+
+    z-index:10;
+}
+

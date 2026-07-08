@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IntroQuiz</title>
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div id="app">
+
+<!--==================================================
+スタート画面
+===================================================-->
+
+<section id="startScreen" class="screen active">
+
+    <div class="card">
+
+        <div class="logo">
+
+        
+
+            <h1>IntroQuiz</h1>
+
+
+        </div>
+
+        <div class="questionBox">
+
+            <h2>問題数を選択</h2>
+
+            <div class="questionButtons">
+
+                <button class="count-btn" data-count="1">
+                    1問
+                </button>
+
+                <button class="count-btn" data-count="10">
+                    10問
+                </button>
+
+                <button class="count-btn" data-count="20">
+                    20問
+                </button>
+
+                <button class="count-btn" data-count="50">
+                    50問
+                </button>
+
+                <button class="count-btn" data-count="100">
+                    100問
+                </button>
+
+                <button class="count-btn" data-count="all">
+                    全問
+                </button>
+
+            </div>
+
+        </div>
+
+        <button id="startButton" class="mainButton">
+
+            <span class="material-icons">
+
+                play_arrow
+
+            </span>
+
+            スタート
+
+        </button>
+
+    </div>
+
+</section>
+
+<!--==================================================
+ゲーム画面
+===================================================-->
+
+<section id="gameScreen" class="screen">
+
+    <div class="card">
+
+        <button class="homeButton">
+
+            <span class="material-icons">
+
+                home
+
+            </span>
+
+        </button>
+
+        <header>
+
+            <div class="status">
+
+                <p>SCORE</p>
+
+                <h3 id="score">0 pt</h3>
+
+            </div>
+
+            <div class="status">
+
+                <p>COMBO</p>
+
+                <h3 id="combo">0 combo</h3>
+
+            </div>
+
+            <div class="status">
+
+                <p>QUESTION</p>
+
+                <h3 id="questionCount">1 / 10</h3>
+
+            </div>
+
+        </header>
+
+        <h2 class="gameTitle">
+
+            IntroQuiz
+
+        </h2>
+
+        <div class="timerArea">
+
+            <div class="timerCircle">
+
+                <svg class="progress" viewBox="0 0 220 220">
+
+                    <defs>
+
+                        <linearGradient id="timerGradient"
+                            x1="0%"
+                            y1="0%"
+                            x2="100%"
+                            y2="100%">
+
+                            <stop offset="0%" stop-color="#7e93a7"/>
+
+                            <stop offset="100%" stop-color="#7e93a7"/>
+
+                        </linearGradient>
+
+                    </defs>
+
+                    <circle
+                        class="bg"
+                        cx="110"
+                        cy="110"
+                        r="95">
+                    </circle>
+
+                    <circle
+                        id="gameProgress"
+                        class="fg"
+                        cx="110"
+                        cy="110"
+                        r="95">
+                    </circle>
+
+                </svg>
+
+                <div class="timerText">
+
+                    <span id="timer">
+
+                        20
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="equalizer">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+        <div class="buttonArea">
+
+            <button id="playButton" class="mainButton">
+
+                <span class="material-icons">
+
+                    play_arrow
+
+                </span>
+
+                再生する
+
+            </button>
+
+            <button id="answerButton" class="subButton">
+
+                回答する
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--==================================================
+回答画面
+===================================================-->
+
+<section id="answerScreen" class="screen">
+
+    <div class="card">
+
+        <h2>回答中...</h2>
+
+        <p>
+            口頭で回答しましょう！
+        </p>
+
+        <div class="timerArea">
+
+            <div class="timerCircle">
+
+                <svg class="progress" viewBox="0 0 220 220">
+
+                    <defs>
+
+                        <linearGradient
+                            id="answerTimerGradient"
+                            x1="0%"
+                            y1="0%"
+                            x2="100%"
+                            y2="100%">
+
+                            <stop offset="0%" stop-color="#7e93a7"/>
+
+                            <stop offset="100%" stop-color="#7e93a7"/>
+
+                        </linearGradient>
+
+                    </defs>
+
+                    <circle
+                        class="bg"
+                        cx="110"
+                        cy="110"
+                        r="95">
+                    </circle>
+
+                    <circle
+                        id="answerProgress"
+                        class="fg answerRing"
+                        cx="110"
+                        cy="110"
+                        r="95">
+                    </circle>
+
+                </svg>
+
+                <div class="timerText">
+
+                    <span id="answerTimer">
+
+                        10
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!--==================================================
+正解画面
+===================================================-->
+
+<section id="resultScreen" class="screen">
+
+    <div class="card">
+
+        <button class="homeButton">
+
+            <span class="material-icons">
+
+                home
+
+            </span>
+
+        </button>
+
+        <header>
+
+            <div class="status">
+
+                <p>SCORE</p>
+
+                <h3 id="resultScore">
+
+                    0 pt
+
+                </h3>
+
+            </div>
+
+            <div class="status">
+
+                <p>COMBO</p>
+
+                <h3 id="resultCombo">
+
+                    0 combo
+
+                </h3>
+
+            </div>
+
+            <div class="status">
+
+                <p>QUESTION</p>
+
+                <h3 id="resultQuestion">
+
+                    1 / 10
+
+                </h3>
+
+            </div>
+
+        </header>
+
+        <h2>
+
+            この曲は
+
+        </h2>
+
+        <h1 id="musicTitle">
+
+            タイトル
+
+        </h1>
+
+        <h3 id="artistName">
+
+            アーティスト
+
+        </h3>
+
+        <div class="judgeArea">
+
+           <button
+    id="correctButton"
+    class="judgeCard correct">
+
+    <svg class="judgeIcon" viewBox="0 0 100 100">
+
+        <circle
+            cx="50"
+            cy="50"
+            r="34"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="8"/>
+
+    </svg>
+
+    <div>
+
+        正解
+
+    </div>
+
+</button>
+
+           <button
+    id="wrongButton"
+    class="judgeCard wrong">
+
+    <svg class="judgeIcon" viewBox="0 0 100 100">
+
+        <line
+            x1="28"
+            y1="28"
+            x2="72"
+            y2="72"
+            stroke="currentColor"
+            stroke-width="8"
+            stroke-linecap="round"/>
+
+        <line
+            x1="72"
+            y1="28"
+            x2="28"
+            y2="72"
+            stroke="currentColor"
+            stroke-width="8"
+            stroke-linecap="round"/>
+
+    </svg>
+
+    <div>
+
+        不正解
+
+    </div>
+
+</button>
+
+  </div>
+
+    </div>
+
+</section>
+
+
+<!--==================================================
+結果画面
+===================================================-->
+
+<section id="finishScreen" class="screen">
+
+    <div class="card finishCard">
+
+        <button class="homeButton">
+
+            <span class="material-icons">
+
+                home
+
+            </span>
+
+        </button>
+
+        <div class="finishTitle">
+
+            <span class="confetti left">
+
+                ⭐
+
+            </span>
+
+            <div>
+
+                <h1>
+
+                    RESULT
+
+                </h1>
+
+                <p>
+
+                    
+
+                </p>
+
+            </div>
+
+            <span class="confetti right">
+
+                ⭐
+
+            </span>
+
+        </div>
+
+
+        <div class="resultCard">
+
+            <p class="resultLabel">
+
+                SCORE
+
+            </p>
+
+            <h2 id="finalScore">
+
+                0 pt
+
+            </h2>
+
+            <div class="resultLine"></div>
+
+            <p class="resultLabel">
+
+                RANK
+
+            </p>
+            <div class="rankArea">
+
+    <h2 id="rank">S</h2>
+
+    <p id="rankComment">Perfect!!</p>
+
+</div>
+
+            
+
+        </div>
+
+               <button
+            id="backHomeButton"
+            class="subButton">
+
+            <span class="material-icons">
+                home
+            </span>
+
+            ホームへ戻る
+
+        </button>
+
+    </div>
+
+<script src="js/musicData.js"></script>
+<script src="js/screen.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/timer.js"></script>
+<script src="js/app.js"></script>
+
+</section>
+
+</body>
+
+</html>
