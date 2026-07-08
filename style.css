@@ -129,8 +129,7 @@ body::after{
 #app{
 
     width:100vw;
-
-    height:100vh;
+    min-height:100dvh;
 
     display:flex;
 
@@ -1098,9 +1097,10 @@ header{
 
 .card{
 
-    width:100%;
+    width:100vw;
+    min-height:100dvh;
 
-    min-height:100vh;
+    margin:0;
 
     border-radius:0;
 
@@ -1511,3 +1511,151 @@ z-index:10;
     z-index:10;
 }
 
+/*==================================================
+Safari Patch
+==================================================*/
+
+/* iPhone Safari */
+@supports (-webkit-touch-callout: none){
+
+html{
+
+    width:100%;
+    height:100%;
+    overflow:hidden;
+
+}
+
+body{
+
+    width:100%;
+    min-height:100dvh;
+
+    overflow:hidden;
+
+    background-attachment:scroll;
+
+    -webkit-text-size-adjust:100%;
+
+}
+
+#app{
+
+    width:100%;
+    min-height:100dvh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+}
+
+.screen{
+
+    width:100%;
+    min-height:100dvh;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.screen.active{
+
+    display:flex;
+
+}
+
+}
+
+@supports (-webkit-touch-callout: none){
+
+.card{
+
+    width:100%;
+    max-width:100%;
+
+    min-height:100dvh;
+
+    margin:0;
+
+    border-radius:0;
+
+    padding:24px;
+
+}
+
+.mainButton,
+.subButton{
+
+    width:100%;
+
+    max-width:420px;
+
+}
+
+.questionButtons{
+
+    width:100%;
+
+    justify-content:center;
+
+}
+
+.judgeArea{
+
+    width:100%;
+
+    justify-content:center;
+
+}
+
+.judgeCard{
+
+    width:100%;
+
+    max-width:280px;
+
+}
+
+}
+
+@supports (-webkit-touch-callout: none){
+
+button{
+
+    -webkit-appearance:none;
+
+    appearance:none;
+
+    touch-action:manipulation;
+
+}
+
+button,
+.mainButton,
+.subButton,
+.count-btn,
+.judgeCard,
+.homeButton{
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+.material-icons{
+
+    pointer-events:none;
+
+}
+
+}
